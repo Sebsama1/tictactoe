@@ -15,6 +15,7 @@ class Game
         name_player2 = gets.chomp
         @player2 = Player.new("#{name_player2}")
         puts "The battle will be between " + @player1.name + " and " + @player2.name
+                
                 ## Initialisation du plateau
         board = Board.new
         board.play
