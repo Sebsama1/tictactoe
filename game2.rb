@@ -33,32 +33,33 @@ class Game
             choice_is_valid = false
             until choice_is_valid do 
                 puts "#{@player1.name} turn : your choice ?"
-                choice = user.gets.chomp
-                if Board.cases[choice].is_empty
-                    state = "X"
+                choice = gets.chomp
+                if @board.cases[choice.to_i].is_empty?
+                    @board.cases[choice.to_i].state = "X"
                     choice_is_valid= true
                 else 
                     puts "Wrong choice mate nb 1, try that again"
                 end
             end
 
-            Board.show
+            @board.show
+
+            winner = 
 
             if winner == nil
                 choice_is_valid = false
                 until choice_is_valid do 
                     puts "#{@player2.name} turn : your choice ?"
-                    choice = user.gets.chomp
-                    if Board.cases[choice].is_empty
-                        state = "O"
+                    choice = gets.chomp
+                    if @board.cases[choice.to_i].is_empty?
+                        @board.cases[choice.to_i].state ="O"
                         choice_is_valid= true
                     else 
                         puts "Wrong choice mate nb 2, try that again"
                     end
                 end
+                @board.show
             end
-
-            Board.show
         end
     end
 
@@ -133,8 +134,8 @@ class BoardCase
 
 end
 
-#my_game = Game.new
-#my_game.play()
+my_game = Game.new
+my_game.play()
 
 =begin
 
