@@ -14,8 +14,10 @@ class Game
 
     def initialize
                 ## Initialisation des joueurs
-
-
+        puts "          ===============              "
+        puts "PREPARE FOR THE ULTIMATE TICTACTOE MATE"
+        puts "          ===============              "
+        puts
         puts "Please enter name of player 1"
         name_player1 = gets.chomp
         @player1 = Player.new("#{name_player1}")
@@ -54,7 +56,7 @@ class Game
                     @board.cases[choice.to_i].state = "X"
                     choice_is_valid = true
                 else
-                    puts "Wrong choice mate nb 1, try that again"
+                    puts "Wrong choice mate n° 1, try that again"
                 end
             end
 
@@ -71,7 +73,7 @@ class Game
                         @board.cases[choice.to_i].state ="O"
                         choice_is_valid= true
                     else
-                        puts "Wrong choice mate nb 2, try that again"
+                        puts "Wrong choice mate n° 2, try that again"
                     end
                 end
                 @board.show
@@ -80,9 +82,9 @@ class Game
         end
         puts "game finished"
         if winner != nil
-            puts "winner is " + winner.name
+            puts "And ... The winner is " + winner.name
         elsif @board.is_full?
-            puts "it's a tie!"
+            puts "Oï ! It's a tie!"
         end
 
     end
@@ -126,9 +128,14 @@ class Board
     end
 
     def show
-        puts @cases[1].state.to_s + " | " + @cases[2].state.to_s + " | " + @cases[3].state.to_s
-        puts @cases[4].state.to_s + " | " + @cases[5].state.to_s + " | " + @cases[6].state.to_s
-        puts @cases[7].state.to_s + " | " + @cases[8].state.to_s + " | " + @cases[9].state.to_s
+    	puts "  Board state       Positions"
+    	puts "  ---+---+---      ---+---+---      "
+        puts  " | " + @cases[1].state.to_s + " | " + @cases[2].state.to_s + " | " + @cases[3].state.to_s + " |    | 1 | 2 | 3 |"
+    	puts "  ---+---+---      ---+---+---      "
+        puts  " | " + @cases[4].state.to_s + " | " + @cases[5].state.to_s + " | " + @cases[6].state.to_s + " |    | 4 | 5 | 6 |"
+    	puts "  ---+---+---      ---+---+---      "
+        puts  " | " + @cases[7].state.to_s + " | " + @cases[8].state.to_s + " | " + @cases[9].state.to_s + " |    | 7 | 8 | 9 |"
+    	puts "  ---+---+---      ---+---+---      "
         puts
     end
 
@@ -170,10 +177,8 @@ class BoardCase
 
 end
 
-my_game = Game.new
+#my_game = Game.new
 
-
-=begin
 
 my_board = Board.new()
 my_board.cases[1].state="X"
@@ -187,4 +192,3 @@ my_board.reset
 
 my_board.show
 
-=end
